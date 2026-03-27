@@ -13,16 +13,27 @@ public class LibroService {
     @Autowired
     private LibroRepository libroRepository;
 
-
-    public List<Libro> readAll(){
+    public List<Libro> readAll() {
         return libroRepository.obteneLibros();
 
     }
 
-
     public Libro create(Libro libro) {
         return libroRepository.guardarLibro(libro);
 
+    }
+
+    public void seed() {
+        libroRepository.seed();
+    }
+
+    public Libro readbyId(int id) {
+        return libroRepository.obtenerPorId(id);
+    }
+
+    public Libro readbyIsbn(String isbn) {
+
+        return libroRepository.buscarporIsbn(isbn);
     }
 
 }
