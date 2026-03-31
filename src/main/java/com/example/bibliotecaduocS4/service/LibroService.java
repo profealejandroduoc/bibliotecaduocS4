@@ -36,4 +36,15 @@ public class LibroService {
         return libroRepository.buscarporIsbn(isbn);
     }
 
+    public Libro update(int id, Libro libro) {
+        return libroRepository.modificar(id, libro);
+    }
+
+    public String delete(int id) {
+        if (libroRepository.eliminar(id)) {
+            return "Libro eliminado";
+        }
+        return "No se puede eliminar";
+    }
+
 }

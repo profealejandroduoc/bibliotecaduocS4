@@ -107,4 +107,28 @@ public class LibroRepository {
                 return null;
         }
 
+        public Libro modificar(int id, Libro libro) {
+                Libro buscado = obtenerPorId(id);
+                if (buscado != null) {
+                        buscado.setAutor(libro.getAutor());
+                        buscado.setEditorial(libro.getEditorial());
+                        buscado.setFechaPublicacion(libro.getFechaPublicacion());
+                        buscado.setIsbn(libro.getIsbn());
+                        buscado.setTitulo(libro.getTitulo());
+                        return buscado;
+                }
+                return null;
+        }
+
+        public boolean eliminar(int id) {
+                // Libro kill = obtenerPorId(id);
+                // if (kill != null) {
+                //         listaLibros.remove(kill);
+                //         return true;
+                // }
+                // return false;
+
+                return listaLibros.removeIf(b->b.getId()==id);
+        }
+
 }

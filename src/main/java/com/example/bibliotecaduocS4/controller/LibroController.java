@@ -3,6 +3,7 @@ package com.example.bibliotecaduocS4.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.bibliotecaduocS4.model.Libro;
 import com.example.bibliotecaduocS4.service.LibroService;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/api/v1/libros")
@@ -46,4 +49,14 @@ public class LibroController {
         return libroservice.readbyIsbn(isbn);
     }
 
+    @PutMapping("{id}")
+    public Libro putLibro(@PathVariable int id, @RequestBody Libro libro) {
+        return libroservice.update(id,libro);
+    }
+
+    @DeleteMapping("eliminar/{id}")
+    public String deleteLibro(@PathVariable int id){
+        return libroservice.delete(id);
+   
+    }
 }
