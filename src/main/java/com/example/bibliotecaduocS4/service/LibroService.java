@@ -47,4 +47,8 @@ public class LibroService {
         return "No se puede eliminar";
     }
 
+    public List<Libro> getByYear(int year) {
+        return libroRepository.getByYear(year);
+    }
+
 }

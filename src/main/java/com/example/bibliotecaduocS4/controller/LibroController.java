@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.bibliotecaduocS4.model.Libro;
 import com.example.bibliotecaduocS4.service.LibroService;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -59,4 +61,10 @@ public class LibroController {
         return libroservice.delete(id);
    
     }
+
+    @GetMapping("year/{year}")
+    public List<Libro> getByYear(@PathVariable int year) {
+        return libroservice.getByYear(year);
+    }
+    
 }

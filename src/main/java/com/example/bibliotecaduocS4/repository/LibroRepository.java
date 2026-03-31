@@ -123,12 +123,23 @@ public class LibroRepository {
         public boolean eliminar(int id) {
                 // Libro kill = obtenerPorId(id);
                 // if (kill != null) {
-                //         listaLibros.remove(kill);
-                //         return true;
+                // listaLibros.remove(kill);
+                // return true;
                 // }
                 // return false;
 
-                return listaLibros.removeIf(b->b.getId()==id);
+                return listaLibros.removeIf(b -> b.getId() == id);
+        }
+
+        public List<Libro> getByYear(int year) {
+                List<Libro> lista = new ArrayList<>();
+                for (Libro libro : listaLibros) {
+                        if (libro.getFechaPublicacion() == year) {
+                                lista.add(libro);
+                        }
+                        
+                }
+                return lista;
         }
 
 }
